@@ -178,8 +178,8 @@ Regeringar: .gov
 Dessa är toppdomäner.
 Man kan alltid fråga en .-server om vem som har hand om en toppdomän.
 Under dessa finns t.ex.
-cisco.com
-ford.com
++cisco.com
++ford.com
 Allt toppdomänen behöver veta är IP-adressen till ciscos domänserver för att nå allt inom cisco.
 Man lade sedan till toppdomäner för varje land. Dessa länder fick sedan sköta sina egna domäner.
 Under .se kan till exempel finnas: volvo.se, telia.se
