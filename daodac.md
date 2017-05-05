@@ -105,10 +105,10 @@ Man sätter ett VLAN-ID för alla paket, antingen i swithchen eller i datorn, sk
 Man kan spärra, "trunka" taggar osv.
 Nackdel: vi lämnar hela säkerheten åt switcharna
 
-##21/04-17
+## 21/04-17
 PDF finns på Classroom. Innehåller det mesta av det vi gått igenom.
 
-###Dagens lektion: switching vs routing
+### Dagens lektion: switching vs routing
 **Två ganska lika processer: information kommer in och en "avgörare" väljer vart trafiken ska gå.** 
 Behöver inte gå utanför datorn, t.ex. i VMs.  
 Till för att avgöra vart ett datapaket skall ta vägen.  
@@ -121,13 +121,13 @@ Till för att avgöra vart ett datapaket skall ta vägen.
 Kollisionsdomän: alla enheter som kan råka "krocka" med varandra.
 
 En switch med fem anslutningar har fem kollisionsdomäner, med varsin pryl. Alltså inga kollisioner!  
-####Switchtabell (finns i primärminne)
-  | Port | MAC |
-  |-----:|-----|
-  | 1    | 1-2-3 |
-  | 2    | 4-5-6 |
-  | 3    | 7-8-9 |
-  | 4    | A-B-C |
+#### Switchtabell (finns i primärminne)
+| Port | MAC |
+|-----:|-----|
+| 1    | 1-2-3 |
+| 2    | 4-5-6 |
+| 3    | 7-8-9 |
+| 4    | A-B-C |
 
 När ett paket skickas, kollar den på "från" och lägger detta i switchtabellen, switchen gissar fel om tabellen inte uppdateras, vilket den gör flera gånger per sekund.  
 Om inte switchen har "till" i sin tabell, skickar den ut på broadcast, och lär sig när den får svar från rätt dator.  
@@ -142,13 +142,13 @@ Switching sker på LAN (lager 2).    Routing sker mellan nätverk.
 Man skall i teori inte kunna koppla en kabel mellan switchar i olika nätverk.  
 
 En hemmarouter har oftast bara 2 portar. Resten tillhör switchen.  
-####Routingtabell:
-    | IP-nät        | Port |   Metric |
-    |:--------------|-----:|---------:|
-    | 1.2.3.0/24    | 1    |   1 |
-    | 10.20.0.0/16  | 2    |   1 |
-    | 100.200.0.0/16 | 3    |   3 |
-    | 100.200.0.0/16 | 4    |   2 |
+#### Routingtabell:
+| IP-nät        | Port |   Metric |
+|:--------------|-----:|---------:|
+| 1.2.3.0/24    | 1    |   1 |
+| 10.20.0.0/16  | 2    |   1 |
+| 100.200.0.0/16 | 3    |   3 |
+| 100.200.0.0/16 | 4    |   2 |
 
 Routrar kommunicerar mellan varandra med separata protokoll, och lär sina kompisar sina egna routingtabeller.  
 IP skulle från början vara "självläkande", man skulle kunna använda nätet även om det blev sönderbombat.  
@@ -159,7 +159,7 @@ Default Gateway: IP-nummer till routern. Windows skickar alla paket som inte ska
 Varje router kostar lite tid, detta kan ställa till det i Ethernet.  
 Rekommmendation: ha ej fler än 4 switchar "på höjden" för att undvika att nätet blir långsamt.
 
-##05/05-27
+## 05/05-27
 
 ### ARP
 Address Resolution Protocol  
