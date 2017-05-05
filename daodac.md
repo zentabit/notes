@@ -213,7 +213,7 @@ Många gånger är det många poster som leder till samma server.
     Om vi har ett LAN som är kopplad till en router så har alla i LANet samma DGW.
 
 ### ISP
-  Internet Service Provider
-  Det bolag som ger en anslutning till internet.
-  Om man är ett företag kan man avtala med ännu större ISPs.
+  Internet Service Provider  
+  Det bolag som ger en anslutning till internet.  
+  Om man är ett företag kan man avtala med ännu större ISPs.  
 
