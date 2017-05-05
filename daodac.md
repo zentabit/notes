@@ -170,4 +170,21 @@ IP      MAC
 1.2.3.4 3A-4C-11-41-AB-1C
 Berättar vilken adress en adress finns på.
 
+###DNS
+Högst upp: . (root)
+Icke-vinstdrivande; .org
+Kommersiell: .com
+Regeringar: .gov
+Dessa är toppdomäner.
+Man kan alltid fråga en .-server om vem som har hand om en toppdomän.
+Under dessa finns t.ex.
+cisco.com
+ford.com
+Allt toppdomänen behöver veta är IP-adressen till ciscos domänserver för att nå allt inom cisco.
+Man lade sedan till toppdomäner för varje land. Dessa länder fick sedan sköta sina egna domäner.
+Under .se kan till exempel finnas: volvo.se, telia.se
+Om vi vill exempel till whitehouse.com går detta hela vägen upp till . och sedan ned till dess domänserver.
+Rootservrarna är dödligt viktiga för internet. Vill man döda internet så dödar man dessa.
+UDP-port 53 sker DNS-förfrågningarna på.
+
 
