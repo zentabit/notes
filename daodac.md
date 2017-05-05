@@ -1,7 +1,7 @@
 Anteckningar från Dator- och nätverksteknik
 31/03-17
 ------------------------------------------------------------------------------------------------------------------------------------------------
-#DEL ETT
+# DEL ETT
 Local Area Network
 Litet lokalt nätverk som oftast är begränsat till en byggnad. Fysiskt små nätverk. Ethernet.
 
@@ -20,7 +20,7 @@ Trådlös motsvarighet av LAN. Använder andra protokoll som är kompatibla med 
 Virtual Local Area Network
 Virtuell uppdelning av fysiska lokala nätverk. Kan även ske över nätet i VPN.
 
-#DEL TVÅ
+# DEL TVÅ
 OSI
 	Lager 1 
 	Lager 2 Ethernet
@@ -160,17 +160,17 @@ Visar lite bilder på nätverkshårdvara.
 05/05-27
 Cisco Packet Tracer
 
-###ARP
+### ARP
 Address Resolution Protocol
 -Kopplar mellan MAC-adresser & IP-adresser
 Det är helt ok att köra LAN med endast Ethernet.
 Men eftersom man ville ansluta till Internet, behövde man ha IP också.
-####ARP-tabell
+#### ARP-tabell
 IP      MAC
 1.2.3.4 3A-4C-11-41-AB-1C
 Berättar vilken adress en adress finns på.
 
-###DNS
+### DNS
 Högst upp: . (root)
 Icke-vinstdrivande; .org
 Kommersiell: .com
@@ -193,16 +193,27 @@ Man kan också injicera DNS-svar före den riktiga servern för att sabba för f
 Lösningen för detta kallas DNSSec, som har digitala certifikat och krypterade anslutningar.
 DNS-servrar kan också uppdatera varandra, de kan sprida sin info till andra servrar. Detta görs på TCP 53.
 Ur säkerhetssynpunkt är detta en dum idé då detta kan resultera i att skadliga eller dåliga adresser sprids.
-####DNS-databas
+#### DNS-databas
 Namn        Typ     Värde
 admin       A       216.194.67.119
 localhost   A       127.0.0.1
 
-####Typer av records:
+#### Typer av records:
 + A: ett "rent" namn, det får bara finnas en av dessa.
 + CNAME: Alias för en annan post, text www leder till A-posten
 + MX: Mail exchange
 + NS: Name Server, poster till DNS-servrarna
 + SOA: Start of Authority, talar om vilken dator som är ansvarig för domänen.
 Många gånger är det många poster som leder till samma server.
+
+### Default Gateway
+Den dator du skickar paketet till när paketet du skickar inte har samma IP-nät som din egna dator.
+Om min dator har 1.2.3.95/24 och paketet är adresserat till 1.2.3.4 blandar vi inte in default gateway.
+Annars skickar vi bara till default gateway.
+Om vi har ett LAN som är kopplad till en router så har alla i LANet samma DGW.
+
+### ISP
+Internet Service Provider
+Det bolag som ger en anslutning till internet.
+Om man är ett företag kan man avtala med ännu större ISPs.
 
