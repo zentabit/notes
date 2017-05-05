@@ -208,12 +208,17 @@ Många gånger är det många poster som leder till samma server.
 
 ### Default Gateway
 Den dator du skickar paketet till när paketet du skickar inte har samma IP-nät som din egna dator.
+
 Om min dator har 1.2.3.95/24 och paketet är adresserat till 1.2.3.4 blandar vi inte in default gateway.
+
 Annars skickar vi bara till default gateway.
+
 Om vi har ett LAN som är kopplad till en router så har alla i LANet samma DGW.
 
 ### ISP
 Internet Service Provider
+
 Det bolag som ger en anslutning till internet.
+
 Om man är ett företag kan man avtala med ännu större ISPs.
 
