@@ -171,46 +171,47 @@ IP      MAC
 Berättar vilken adress en adress finns på.
 
 ### DNS
-Högst upp: . (root)
-Icke-vinstdrivande; .org
-Kommersiell: .com
-Regeringar: .gov
+Högst upp: . (root)  
++ Icke-vinstdrivande; .org
++ Kommersiell: .com
++ Regeringar: .gov  
 Dessa är toppdomäner.
-Man kan alltid fråga en .-server om vem som har hand om en toppdomän.
-Under dessa finns t.ex.
+Man kan alltid fråga en .-server om vem som har hand om en toppdomän.  
+**Under dessa finns t.ex.**
 + cisco.com
-+ ford.com
-Allt toppdomänen behöver veta är IP-adressen till ciscos domänserver för att nå allt inom cisco.
-Man lade sedan till toppdomäner för varje land. Dessa länder fick sedan sköta sina egna domäner.
-Under .se kan till exempel finnas: volvo.se, telia.se
-Om vi vill exempel till whitehouse.com går detta hela vägen upp till . och sedan ned till dess domänserver.
-Rootservrarna är dödligt viktiga för internet. Vill man döda internet så dödar man dessa.
-UDP-port 53 sker DNS-förfrågningarna på.
-Alla Linux, windows, mac känner till IP-adresserna till rootservrarna.
-Man kan variera hur man sätter upp DNS, t.ex. kan man ha översättningstabeller, mellan olika domäner.
-All DNS-trafik är okrypterad.
-Man kan också injicera DNS-svar före den riktiga servern för att sabba för folk.
-Lösningen för detta kallas DNSSec, som har digitala certifikat och krypterade anslutningar.
-DNS-servrar kan också uppdatera varandra, de kan sprida sin info till andra servrar. Detta görs på TCP 53.
-Ur säkerhetssynpunkt är detta en dum idé då detta kan resultera i att skadliga eller dåliga adresser sprids.
++ ford.com  
+Allt toppdomänen behöver veta är IP-adressen till ciscos domänserver för att nå allt inom cisco.  
+Man lade sedan till toppdomäner för varje land. Dessa länder fick sedan sköta sina egna domäner.  
+Under .se kan till exempel finnas: volvo.se, telia.se  
+Om vi vill exempel till whitehouse.com går detta hela vägen upp till . och sedan ned till dess domänserver.  
+Rootservrarna är dödligt viktiga för internet. Vill man döda internet så dödar man dessa.  
+UDP-port 53 sker DNS-förfrågningarna på.  
+Alla Linux, windows, mac känner till IP-adresserna till rootservrarna.  
+Man kan variera hur man sätter upp DNS, t.ex. kan man ha översättningstabeller, mellan olika domäner.  
+**All DNS-trafik är okrypterad.**
+Man kan också injicera DNS-svar före den riktiga servern för att sabba för folk.  
+Lösningen för detta kallas DNSSec, som har digitala certifikat och krypterade anslutningar.  
+DNS-servrar kan också uppdatera varandra, de kan sprida sin info till andra servrar. Detta görs på TCP 53.  
+Ur säkerhetssynpunkt är detta en dum idé då detta kan resultera i att skadliga eller dåliga adresser sprids.  
 #### DNS-databas
-Namn        Typ     Värde
-admin       A       216.194.67.119
-localhost   A       127.0.0.1
+| Namn      |  Typ   |  Värde |
+|-----------|:-------|-------:|
+| admin     | A      |  216.194.67.119 |
+| localhost | A      | 127.0.0.1 |
 
 #### Typer av records:
 + A: ett "rent" namn, det får bara finnas en av dessa.
 + CNAME: Alias för en annan post, text www leder till A-posten
 + MX: Mail exchange
 + NS: Name Server, poster till DNS-servrarna
-+ SOA: Start of Authority, talar om vilken dator som är ansvarig för domänen.
++ SOA: Start of Authority, talar om vilken dator som är ansvarig för domänen.  
 Många gånger är det många poster som leder till samma server.
 
 ### Default Gateway
-    Den dator du skickar paketet till när paketet du skickar inte har samma IP-nät som din egna dator.
-    Om min dator har 1.2.3.95/24 och paketet är adresserat till 1.2.3.4 blandar vi inte in default gateway.
-    Annars skickar vi bara till default gateway.
-    Om vi har ett LAN som är kopplad till en router så har alla i LANet samma DGW.
+Den dator du skickar paketet till när paketet du skickar inte har samma IP-nät som din egna dator.  
+Om min dator har 1.2.3.95/24 och paketet är adresserat till 1.2.3.4 blandar vi inte in default gateway.  
+Annars skickar vi bara till default gateway.  
+Om vi har ett LAN som är kopplad till en router så har alla i LANet samma DGW.  
 
 ### ISP
   Internet Service Provider  
