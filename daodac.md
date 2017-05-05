@@ -105,69 +105,71 @@ Man sätter ett VLAN-ID för alla paket, antingen i swithchen eller i datorn, sk
 Man kan spärra, "trunka" taggar osv.
 Nackdel: vi lämnar hela säkerheten åt switcharna
 
-21/04-17
+##21/04-17
 PDF finns på Classroom. Innehåller det mesta av det vi gått igenom.
 
-Dagens lektion: switching vs routing
-Två ganska lika processer: information kommer in och en "avgörare" väljer vart trafiken ska gå.
-Behöver inte gå utanför datorn, t.ex. i VMs.
-Till för att avgöra vart ett datapaket skall ta vägen.
+###Dagens lektion: switching vs routing
+**Två ganska lika processer: information kommer in och en "avgörare" väljer vart trafiken ska gå.** 
+Behöver inte gå utanför datorn, t.ex. i VMs.  
+Till för att avgöra vart ett datapaket skall ta vägen.  
 
-Switching sker på Lager 2, MAC-adresser, säger inget om logisk eller fysisk position.
-Routing sker på Lager 3, baserat på IP-adresser.
-Switching kräver mindre CPU-kraft.(sker "snabbare")
-Båda minskar (ger avbrott) kollisionsdomäner.
++ Switching sker på Lager 2, MAC-adresser, säger inget om logisk eller fysisk position.
++ Routing sker på Lager 3, baserat på IP-adresser.
++ Switching kräver mindre CPU-kraft.(sker "snabbare")
++ Båda minskar (ger avbrott) kollisionsdomäner.  
+
 Kollisionsdomän: alla enheter som kan råka "krocka" med varandra.
 
-En switch med fem anslutningar har fem kollisionsdomäner, med varsin pryl. Alltså inga kollisioner!
-Switchtabell (finns i primärminne)
-    Port    MAC
-    1       1-2-3
-    2       4-5-6
-    3       7-8-9
-    4       A-B-C
-När ett paket skickas, kollar den på "från" och lägger detta i switchtabellen, switchen gissar fel om tabellen inte uppdateras, vilket den gör flera gånger per sekund.
-Om inte switchen har "till" i sin tabell, skickar den ut på broadcast, och lär sig när den får svar från rätt dator.
-Switchtabellen kan ha flera MAC på samma port, detta kan hända om det finns en hubb/switch under en port.
-KOPPLA ALDRIG SWITCHAR I RING.
-Stackbara switchar: switchar kan kopplas ihop och låtsas som att de är en switch.
+En switch med fem anslutningar har fem kollisionsdomäner, med varsin pryl. Alltså inga kollisioner!  
+####Switchtabell (finns i primärminne)
+  | Port | MAC |
+  |-----:|-----|
+  | 1    | 1-2-3 |
+  | 2    | 4-5-6 |
+  | 3    | 7-8-9 |
+  | 4    | A-B-C |
 
-Det finns tre typer av switchar: L2, L3 och Smart. L2 är oftast bara en plåtlåda.
-Smart har oftast lite förståelse för IP, så att man kan konfiga den.
-L3 är en router-switch, som switchar paket efter att det märkt att det går kommunikation mellan enheter, och routat första paketet.
-Switching sker på LAN (lager 2).    Routing sker mellan nätverk.
-Man skall i teori inte kunna koppla en kabel mellan switchar i olika nätverk.
+När ett paket skickas, kollar den på "från" och lägger detta i switchtabellen, switchen gissar fel om tabellen inte uppdateras, vilket den gör flera gånger per sekund.  
+Om inte switchen har "till" i sin tabell, skickar den ut på broadcast, och lär sig när den får svar från rätt dator.  
+Switchtabellen kan ha flera MAC på samma port, detta kan hända om det finns en hubb/switch under en port.  
+**_KOPPLA ALDRIG SWITCHAR I RING._**  
+Stackbara switchar: switchar kan kopplas ihop och låtsas som att de är en switch.  
 
-En hemmarouter har oftast bara 2 portar. Resten tillhör switchen.
-Routingtabell:
-    IP-nät          Port    Metric
-    1.2.3.0/24      1       1
-    10.20.0.0/16    2       1
-    100.200.0.0/16  3       3
-    100.200.0.0/16  4       2
+Det finns tre typer av switchar: L2, L3 och Smart. L2 är oftast bara en plåtlåda.  
+Smart har oftast lite förståelse för IP, så att man kan konfiga den.  
+L3 är en router-switch, som switchar paket efter att det märkt att det går kommunikation mellan enheter, och routat första paketet.  
+Switching sker på LAN (lager 2).    Routing sker mellan nätverk.  
+Man skall i teori inte kunna koppla en kabel mellan switchar i olika nätverk.  
 
-Routrar kommunicerar mellan varandra med separata protokoll, och lär sina kompisar sina egna routingtabeller.
-IP skulle från början vara "självläkande", man skulle kunna använda nätet även om det blev sönderbombat.
-Samma nätverk kan finnas på olika portar, paketet tar vägen med minst "metric".
-De flesta ISP-er försöker hålla ett paket inom sitt egna nätverk så länge det går för att hålla ned kostnaderna.
-De flesta routrar tittar inte på mer än Lager 3, men om routern skall agera brandvägg kan den kolla på portar och annan intressant info.
-Default Gateway: IP-nummer till routern. Windows skickar alla paket som inte skall till LAN till dess MAC.
-Varje router kostar lite tid, detta kan ställa till det i Ethernet.
+En hemmarouter har oftast bara 2 portar. Resten tillhör switchen.  
+####Routingtabell:
+    | IP-nät        | Port |   Metric |
+    |:--------------|-----:|---------:|
+    | 1.2.3.0/24    | 1    |   1 |
+    | 10.20.0.0/16  | 2    |   1 |
+    | 100.200.0.0/16 | 3    |   3 |
+    | 100.200.0.0/16 | 4    |   2 |
+
+Routrar kommunicerar mellan varandra med separata protokoll, och lär sina kompisar sina egna routingtabeller.  
+IP skulle från början vara "självläkande", man skulle kunna använda nätet även om det blev sönderbombat.  
+Samma nätverk kan finnas på olika portar, paketet tar vägen med minst "metric".  
+De flesta ISP-er försöker hålla ett paket inom sitt egna nätverk så länge det går för att hålla ned kostnaderna.  
+De flesta routrar tittar inte på mer än Lager 3, men om routern skall agera brandvägg kan den kolla på portar och annan intressant info.  
+Default Gateway: IP-nummer till routern. Windows skickar alla paket som inte skall till LAN till dess MAC.  
+Varje router kostar lite tid, detta kan ställa till det i Ethernet.  
 Rekommmendation: ha ej fler än 4 switchar "på höjden" för att undvika att nätet blir långsamt.
 
-Visar lite bilder på nätverkshårdvara.
-
-05/05-27
-Cisco Packet Tracer
+##05/05-27
 
 ### ARP
-Address Resolution Protocol
--Kopplar mellan MAC-adresser & IP-adresser
-Det är helt ok att köra LAN med endast Ethernet.
-Men eftersom man ville ansluta till Internet, behövde man ha IP också.
+Address Resolution Protocol  
+**Kopplar mellan MAC-adresser & IP-adresser**  
+Det är helt ok att köra LAN med endast Ethernet.  
+Men eftersom man ville ansluta till Internet, behövde man ha IP också.  
 #### ARP-tabell
-IP      MAC
-1.2.3.4 3A-4C-11-41-AB-1C
+| IP     | MAC |
+|:-------|:----|
+| 1.2.3.4 | 3A-4C-11-41-AB-1C |  
 Berättar vilken adress en adress finns på.
 
 ### DNS
@@ -175,11 +177,13 @@ Högst upp: . (root)
 + Icke-vinstdrivande; .org
 + Kommersiell: .com
 + Regeringar: .gov  
+
 Dessa är toppdomäner.
 Man kan alltid fråga en .-server om vem som har hand om en toppdomän.  
 **Under dessa finns t.ex.**
 + cisco.com
 + ford.com  
+
 Allt toppdomänen behöver veta är IP-adressen till ciscos domänserver för att nå allt inom cisco.  
 Man lade sedan till toppdomäner för varje land. Dessa länder fick sedan sköta sina egna domäner.  
 Under .se kan till exempel finnas: volvo.se, telia.se  
@@ -188,7 +192,7 @@ Rootservrarna är dödligt viktiga för internet. Vill man döda internet så d�
 UDP-port 53 sker DNS-förfrågningarna på.  
 Alla Linux, windows, mac känner till IP-adresserna till rootservrarna.  
 Man kan variera hur man sätter upp DNS, t.ex. kan man ha översättningstabeller, mellan olika domäner.  
-**All DNS-trafik är okrypterad.**
+**All DNS-trafik är okrypterad.**  
 Man kan också injicera DNS-svar före den riktiga servern för att sabba för folk.  
 Lösningen för detta kallas DNSSec, som har digitala certifikat och krypterade anslutningar.  
 DNS-servrar kan också uppdatera varandra, de kan sprida sin info till andra servrar. Detta görs på TCP 53.  
@@ -205,6 +209,7 @@ Ur säkerhetssynpunkt är detta en dum idé då detta kan resultera i att skadli
 + MX: Mail exchange
 + NS: Name Server, poster till DNS-servrarna
 + SOA: Start of Authority, talar om vilken dator som är ansvarig för domänen.  
+
 Många gånger är det många poster som leder till samma server.
 
 ### Default Gateway
