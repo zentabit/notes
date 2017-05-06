@@ -1,4 +1,4 @@
-Anteckningar från Dator- och nätverksteknik
+# Anteckningar från Dator- och nätverksteknik
 
 ## 31/03-17
 
@@ -17,6 +17,7 @@ Trådlös motsvarighet av LAN. Använder andra protokoll som är kompatibla med 
 Virtuell uppdelning av fysiska lokala nätverk. Kan även ske över nätet i VPN.
 
 ### OSI-modellen
+
 | Lager | Protokoll |
 |:------|-----------|
 | Lager 7 | Applikationsprotokoll |
@@ -27,77 +28,78 @@ Virtuell uppdelning av fysiska lokala nätverk. Kan även ske över nätet i VPN
 | Lager 2 | Ethternet |
 | Lager 1 |  |
 
-App. prot.: Lager 5,6,7
+#### App. prot.: Lager 5,6,7
+
 Tusentals stycken, några vanliga är:
-HTTP - 80 - HyperText Transfer Protocol - "Surf", nedladdning av hypertext-dokument. Vi använder dock inte HTTP som det var designat för.
-DNS - Domain Name System - gammalt och används inte längre. Namnuppslagning: Namn -> IP-nummer.
-DNSSec - uppföljaren till DNS, är dock mycket säkrare. Har stöd från certifikat och stuff.
-SSH - 22 - Secure SHell. Säker textbaserad terminal. Fjärrstyrning
-RDP - 3389 - Remote Desktop Protocol - Fjärrstyrning av Windows
-Telnet - 23 - Fjärrstyrning, textläge, helt okrypterat!!! Överförbar på en sytråd.
-SMTP - 587 - Simple Mail Transfer Protocol - Gammalt men fortfarande använt för mejl. 7-bit ASCII.
-POP3 - 110 - Post Office Protocol - hämtar epost från servern.
-IMAP - 143 - Internet Message Access Protocol - samma funktion som POP3. Kraftfullare än POP.
-SIP (+RTP) - Session Initiation Protocol + Real-Time Transport - IP-telefoni.
-SNMP - 161 - Simple Network Management Protocol - Övervakning av nätverkshårdvara.
-NTP - UDP-123  - Network Time Protocol - Synkronisering av tid.
++ **HTTP** - 80 - HyperText Transfer Protocol - "Surf", nedladdning av hypertext-dokument. Vi använder dock inte HTTP som det var designat för.
++ **DNS** - Domain Name System - gammalt och används inte längre. Namnuppslagning: Namn -> IP-nummer.
++ **DNSSec** - uppföljaren till DNS, är dock mycket säkrare. Har stöd från certifikat och stuff.
++ **SSH** - 22 - Secure SHell. Säker textbaserad terminal. Fjärrstyrning
++ **RDP** - 3389 - Remote Desktop Protocol - Fjärrstyrning av Windows
++ **Telnet** - 23 - Fjärrstyrning, textläge, **helt okrypterat!!!** _Överförbar på en sytråd._
++ **SMTP** - 587 - Simple Mail Transfer Protocol - Gammalt men fortfarande använt för mejl. 7-bit ASCII.
++ **POP3** - 110 - Post Office Protocol - hämtar epost från servern.
++ **IMAP** - 143 - Internet Message Access Protocol - samma funktion som POP3. Kraftfullare än POP.
++ **SIP (+RTP)** - Session Initiation Protocol + Real-Time Transport - IP-telefoni.
++ **SNMP** - 161 - Simple Network Management Protocol - Övervakning av nätverkshårdvara.
++ '*NTP** - UDP-123  - Network Time Protocol - Synkronisering av tid.
 
-ARP - Lager 3 - Adress Translation Protocol - översätter IP till MAC.
-DHCP - Dynamic Host Configuration Protocol - automatisk utdelning av IP-inställningar. BootP är föregångaren till DHCP.
+**ARP** - Lager 3 - Adress Translation Protocol - översätter IP till MAC.  
+**DHCP** - Dynamic Host Configuration Protocol - automatisk utdelning av IP-inställningar. BootP är föregångaren till DHCP.  
 
-07/04-17
-Vi skall göra något speciellt och intressant.
-WinPCAP - spelar in datatrafiken
-Wireshark strukturerar upp datan för att man skall göra det lättläsligt.
-Genomgång av de olika "huvudena" i ett nätverkspaket:
-En Ethernet-ram är det lägsta lagret, ser ut så här:
-    Preamble: Signal som synkroniserar klockan
-    Start of Frame delimiter: Visar när det "intressanta börjar"
-    MAC-Dst: Mottagarens MAC, skickas innan Src för att effektivisera hanteringen av paketet
-    MAC-Src: Sändarens MAC
-    802.1Q tag: VLAN-taggning -- ?
-    Ethertype: Längden på paketet
-    Payload: Själva datan i paketet, 42-1500 oktetter
-    Frame Check Sequence (32-bit CRC): En slags checksumma som är baserad på resten av paketet, för att kontrollera att hela paketet är korrekt skickat. Om det inte stämmer överens, slängs paketet.
-    Interframe gap: Tystnad för att skapa mellanrum mellan paketen, finns inte i WLAN.
+## 07/04-17
 
-Mycket av detta ligger kvar från 70-talet, då man behövde anpassa sig till de dåliga klockorna då.
+#### Genomgång av de olika "huvudena" i ett nätverkspaket:
+
++ En Ethernet-ram är det lägsta lagret, ser ut så här:
++ Preamble: Signal som synkroniserar klockan
++ Start of Frame delimiter: Visar när det "intressanta börjar"
++ MAC-Dst: Mottagarens MAC, skickas innan Src för att effektivisera hanteringen av paketet
++ MAC-Src: Sändarens MAC
++ 802.1Q tag: VLAN-taggning -- ?
++ Ethertype: Längden på paketet
++ Payload: Själva datan i paketet, 42-1500 oktetter
++ Frame Check Sequence (32-bit CRC): En slags checksumma som är baserad på resten av paketet, för att kontrollera att hela paketet är korrekt skickat. Om det inte stämmer överens, slängs paketet.
++ Interframe gap: Tystnad för att skapa mellanrum mellan paketen, finns inte i WLAN.
+
+_Mycket av detta ligger kvar från 70-talet, då man behövde anpassa sig till de dåliga klockorna då._
 I payloaden finns ett till huvud, IP-huvudet:
-    Version: IP-version
-    Header Length: längden på headern, delas upp i "words"
-    ToS: Type of Service - åtta bitar som beskriver Differentiated Services Code Point som skall beskriva vilken typ av trafik det är som skickas.
-    Total Length: Hur många bytes inklusive payload paketet är. Max 64kB.
-    Identification: Slumpmässig siffra
-    IP-flags: Olika information, tex fragmentation eller om det kommer mer bitar.
-    Fragment Offset: beskriver vart i meddelandet vi är.
-    Time To Live: En siffra som beskriver hur många routers paketet får passera.
-    Protocol: Beskriver vilket protkoll som används, ex TCP, UDP, ICMP, IGRP.
-    Header Checksum: vanlig checksumma
-    Src: Källaddress
-    Dst: Destination
-    IP-option: valbar data
-    Payload: payload
++ Version: IP-version
++ Header Length: längden på headern, delas upp i "words"
++ ToS: Type of Service - åtta bitar som beskriver Differentiated Services Code Point som skall beskriva vilken typ av trafik det är som skickas.
++ Total Length: Hur många bytes inklusive payload paketet är. Max 64kB.
++ Identification: Slumpmässig siffra
++ IP-flags: Olika information, tex fragmentation eller om det kommer mer bitar.
++ Fragment Offset: beskriver vart i meddelandet vi är.
++ Time To Live: En siffra som beskriver hur många routers paketet får passera.
++ Protocol: Beskriver vilket protkoll som används, ex TCP, UDP, ICMP, IGRP.
++ Header Checksum: vanlig checksumma
++ Src: Källaddress
++ Dst: Destination
++ IP-option: valbar data
++ Payload: payload
 
 Om ett UDP-paket skickas har det också en header:
-    Src: port, helst inte några från well-known ports
-    Dst: port
-    Length,
-    Checksum
++ Src: port, helst inte några från well-known ports
++ Dst: port
++ Length,
++ Checksum
 
 TCP-paketet ser istället ut så här:
-    Src port
-    Dst port
-    Sequence number: vilken ordning datapaketen kommer i, slumpad
-    ACK-number: Samma sekvensnummer som nästa paket mottagaren förväntar sig att få.
-    Data offset
-    Reserved: 000
-    Några flaggor: NS, CWR, ECE, URG, ACK, PSH, RST - reset, SYN, FIN - finish
-    Windows Size: Hur många paket sändaren kan skicka innan den får en acknowledge
-    Checksum
-    Urgent pointer: Var i infon ligger det viktigaste?
-    Options
++ Src port
++ Dst port
++ Sequence number: vilken ordning datapaketen kommer i, slumpad
++ ACK-number: Samma sekvensnummer som nästa paket mottagaren förväntar sig att få.
++ Data offset
++ Reserved: 000
++ Några flaggor: NS, CWR, ECE, URG, ACK, PSH, RST - reset, SYN, FIN - finish
++ Windows Size: Hur många paket sändaren kan skicka innan den får en acknowledge
++ Checksum
++ Urgent pointer: Var i infon ligger det viktigaste?
++ Options
 
-VLAN - Virtual Local Area Network
+#### VLAN - Virtual Local Area Network
+
 Man sätter ett VLAN-ID för alla paket, antingen i swithchen eller i datorn, skickas med i Ethernet-ramarna.
 Man kan spärra, "trunka" taggar osv.
 Nackdel: vi lämnar hela säkerheten åt switcharna
