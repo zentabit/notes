@@ -5,7 +5,7 @@
 ### Lite historia
 
 Först användes modem (vilket står för modulering & demodulering) över telenätet för att koppla upp sig till internet.
-Eftersom telenätet är analogt förekom mycket felkorrigering då paket förlorades på vägen. Man använde pariet och checksummor för att åtgärda anslutningarna. Detta gav mycket dåliga hastigheter. Modemet var då kretskopplat med modempoolen, alltså fanns det direkt elektrisk kontakt mellan dessa och de bildade en krets. Modempooler är datorer/servar med massor av serieportar som ansluts till var sitt modem, dessa ingick i något kallat PSTN, Public Switched telehone network.
+Eftersom telenätet är analogt förekom mycket felkorrigering då paket förlorades på vägen. Man använde paritet och checksummor för att åtgärda anslutningarna. Detta gav mycket dåliga hastigheter. Modemet var då kretskopplat med modempoolen, alltså fanns det direkt elektrisk kontakt mellan dessa och de bildade en krets. Modempooler är datorer/servar med massor av serieportar som ansluts till var sitt modem, dessa ingick i något kallat PSTN, Public Switched telehone network.
 
 För att kunna ansluta till internet användes också ADSL-splitters (vilka fortfarande används), dessa möjliggör digital förbindelse över analog förbindelse på frekvenser som är ohörbara för människan. Splittern delar upp frekvenserna vid 64kHz, allt under skickas vidare till telefon och allt över används av ADSL.
 
@@ -126,7 +126,8 @@ Tusentals stycken, några vanliga är:
 + Frame Check Sequence (32-bit CRC): En slags checksumma som är baserad på resten av paketet, för att kontrollera att hela paketet är korrekt skickat. Om det inte stämmer överens, slängs paketet.
 + Interframe gap: Tystnad för att skapa mellanrum mellan paketen, finns inte i WLAN.
 
-_Mycket av detta ligger kvar från 70-talet, då man behövde anpassa sig till de dåliga klockorna då._
+_Mycket av detta ligger kvar från 70-talet, då man behövde anpassa sig till de dåliga klockorna då._  
+!{alt text](http://mars.netanya.ac.il/~unesco/cdrom/booklet/HTML/NETWORKING/IMAGES/ipheader.gif)  
 I payloaden finns ett till huvud, IP-huvudet:
 + Version: IP-version
 + Header Length: längden på headern, delas upp i "words"
@@ -143,13 +144,15 @@ I payloaden finns ett till huvud, IP-huvudet:
 + IP-option: valbar data
 + Payload: payload
 
-Om ett UDP-paket skickas har det också en header:
+Om ett UDP-paket skickas har det också en header:  
+![alt text](https://nmap.org/book/images/hdr/MJB-UDP-Header-800x264.png)  
 + Src: port, helst inte några från well-known ports
 + Dst: port
 + Length,
 + Checksum
 
-TCP-paketet ser istället ut så här:
+TCP-paketet ser istället ut så här:  
+![alt text](http://intronetworks.cs.luc.edu/1/html/_images/tcp_header.png)  
 + Src port
 + Dst port
 + Sequence number: vilken ordning datapaketen kommer i, slumpad
