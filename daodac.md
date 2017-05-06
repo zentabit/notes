@@ -127,7 +127,7 @@ Tusentals stycken, några vanliga är:
 + Interframe gap: Tystnad för att skapa mellanrum mellan paketen, finns inte i WLAN.
 
 _Mycket av detta ligger kvar från 70-talet, då man behövde anpassa sig till de dåliga klockorna då._  
-!{alt text](http://mars.netanya.ac.il/~unesco/cdrom/booklet/HTML/NETWORKING/IMAGES/ipheader.gif)  
+![alt text](http://mars.netanya.ac.il/~unesco/cdrom/booklet/HTML/NETWORKING/IMAGES/ipheader.gif)  
 I payloaden finns ett till huvud, IP-huvudet:
 + Version: IP-version
 + Header Length: längden på headern, delas upp i "words"
