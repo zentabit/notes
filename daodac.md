@@ -1,34 +1,30 @@
 Anteckningar från Dator- och nätverksteknik
-31/03-17
-------------------------------------------------------------------------------------------------------------------------------------------------
-# DEL ETT
-Local Area Network
+
+## 31/03-17
+
+### Typer av nätverk
++ Local Area Network  
 Litet lokalt nätverk som oftast är begränsat till en byggnad. Fysiskt små nätverk. Ethernet.
-
-Metropolitan Area Network
++ Metropolitan Area Network
 Stadsnät - länkar över större avstånd än LAN, men mindre än WAN
-
-Wide Area Network
++ Wide Area Network  
 Kopplar ihop flera större MANs, LANs, osv. Kan vara hela Sverige, en region eller flera länder. 
-
-Storage Area Network
++ Storage Area Network  
 Lagringsnät, hantering av stora mängder data. I storleken av ett LAN
-
-Wireless Local Area Network
++ Wireless Local Area Network  
 Trådlös motsvarighet av LAN. Använder andra protokoll som är kompatibla med LAN.
-
-Virtual Local Area Network
++ Virtual Local Area Network  
 Virtuell uppdelning av fysiska lokala nätverk. Kan även ske över nätet i VPN.
 
-# DEL TVÅ
-OSI
-	Lager 1 
-	Lager 2 Ethernet
-	Lager 3 IP
-	Lager 4	TCP/UDP
-	Lager 5
-	Lager 6
-	Lager 7 Applikations prot.
+### OSI-modellen
+
+| Lager 7 | Applikationsprotokoll |
+| Lager 6 |  |
+| Lager 5 |  |
+| Lager 4 | TCP/UDP |
+| Lager 3 | IP |
+| Lager 2 | Ethternet |
+| Lager 1 |  |
 
 App. prot.: Lager 5,6,7
 Tusentals stycken, några vanliga är:
