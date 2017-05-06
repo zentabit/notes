@@ -114,6 +114,7 @@ Tusentals stycken, några vanliga är:
 
 #### Genomgång av de olika "huvudena" i ett nätverkspaket:
 
+![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Ethernet_Type_II_Frame_format.svg/700px-Ethernet_Type_II_Frame_format.svg.png)  
 + En Ethernet-ram är det lägsta lagret, ser ut så här:
 + Preamble: Signal som synkroniserar klockan
 + Start of Frame delimiter: Visar när det "intressanta börjar"
