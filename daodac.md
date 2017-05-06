@@ -1,5 +1,66 @@
 # Anteckningar från Dator- och nätverksteknik
 
+## 13/1-17
+
+### Lite historia
+
+Först användes modem (vilket står för modulering & demodulering) över telenätet för att koppla upp sig till internet.
+Eftersom telenätet är analogt förekom mycket felkorrigering då paket förlorades på vägen. Man använde pariet och checksummor för att åtgärda anslutningarna. Detta gav mycket dåliga hastigheter. Modemet var då kretskopplat med modempoolen, alltså fanns det direkt elektrisk kontakt mellan dessa och de bildade en krets. Modempooler är datorer/servar med massor av serieportar som ansluts till var sitt modem, dessa ingick i något kallat PTSN, Public Switched telehone network.
+
+För att kunna ansluta till internet användes också ADSL-splitters (vilka fortfarande används), dessa möjliggör digital förbindelse över analog förbindelse på frekvenser som är ohörbara för människan. Splittern delar upp frekvenserna vid 64kHz, allt under skickas vidare till telefon och allt över används av ADSL.
+
+Telenätet hanterade samtida uppkopplingar genom att tidsfördela bandbredden. Då fick man full bandbredd i en kort stund, sedan fick någon annan det osv. Modem blev senare ohanterligt då många datorer skulle kopplas samman. Med modem kunde man endast koppla en dator (och det modemet) till internet.
+
+Som en lösning på detta kom PARC/3Com/Robert Metcalfe på "Ethernet" som idag blivit världsstandard på lokala nätverk. Första versionen av Ethernet tillät hastigheter på 2Mbps och kabellängd på 500 m. Numera är det möjligt att ha hastigheter på 40Gbps.
+
+Ethernet använder en teknik som kallas **CSMA/CD** vilket står för _Carrier Sense Multiple Access / Collision Detection_. Detta var nödvändigt på bussnät för att upptäcka samtida sändningar och motverka dessa.
+
+### Nätverkstopologier
++ Bussnät  
+Var den första versionen av Ethernet, krävde först ingen kabelkoncentrator då man helt enkelt anslöt alla datorer till en gemensam buss. Skulle denna buss gå sönder skulle hela nätverket gå under.
++ Ringnät  
+Närmare bestämt token ring. Varje nod skulle då ha två kablar anslutna till sig för att bilda en ring av noder. Man använder sig av en "token" som ger tillstånd att skicka. Denna token skickas sedan runt i ringen, därav namnet.
++ Stjärnnät  
+_**THE FAR SUPERIOR METHOD**_. En central kabelkoncentrator som hanterar trafiken, och man behöver endast dra en sladd till varje nod.
+
+Även om man använde dessa logiska topologier rätt långt in i historien, användes nästan alltid hubbar och MAUs som kabelkoncentratorer för att skapa fysiska stjärnnät ändå. (Vi kan bara komma överens om att stjärnnät är bäst).
+
+Moderna nät använder sig av både logiska och fysiska stjärnor. För att detta skall fungera bra behöver man då använda sig av en annan kabelkoncentrator, _switchen_. _Switchen_ är självlärande och har ett minne, dessutom kan den hantera flera samtida anslutningar. En switch håller koll på vilka MACs som finns på vilka portar och behöver därför inte skicka alla paket på broadcast. (Switchtabell). Endast om _switchen_ inte känner till en MAC skickar den ut på broadcast.
+
+Man bygger ofta nät med en trädstruktur av _switchar_. 
+
+### Standarder
+| Standard | Namn |
+|:---------|:-----|
+| IEEE802.3 | Ethernet |
+| IEEE802.4 | Token bus |
+| IEEE802.5 | Token Ring |
+| IEEE802.11 | WLAN/WiFi |
+
+### WLAN
+**Wireless Local Area Network**  
+På ett WLAN blandas signalerna som flera noder sänder samtidigt, därför används en teknik som kallas **CSMA/CA** vilket står för _Carrier Sense Multiple Access / Collsion Avoidance_. Man undviker alltså kollisioner helt.  
+WLAN använder sig av 2.4 GHz och 5 GHz-banden, varje kanal har en bandbredd på 0.1 GHz.  
+**WLAN fungerar som ett hubbat nätverk** (halv duplex). Alla datorer delar på samma bandbredd.
+
+Grundstandarden kallas IEEE802.11. Sedan finns det understandarder, här när några.
+
+| Understandard | Frekvens(er) | Hastighet |
+|:--------------|:-------------|:----------|
+| 11a | 5GHz | 11Mbps |
+| 11b | 2.4 | 11Mbps |
+| 11g | 2.4 | 54 Mbps |
+| 11n | 2.4 och/eller 5 | 300 Mbps |
+| 11ac | 5 | Massa hastigheter |
+
+2.4GHz-bandet är uppdelat i 13 kanaler och man behöver minst 5 kanalers mellanrum för att inte störa de andra nätverken över huvud taget.
+
+Det finns olika typer av kryptering på WLAN då ett öppet är som att säga: "Här lyssna på alla alla mina privata konversationer jag någonsin kommer ha!".
+
++ WEP - Wired Equivalent Privacy - 40bits kryptering men suger ändå.
++ WPA - använder sig av TKIP/AES.
++ WPA2 - använder sig av AES.
+
 ## 31/03-17
 
 ### Typer av nätverk
@@ -28,6 +89,8 @@ Virtuell uppdelning av fysiska lokala nätverk. Kan även ske över nätet i VPN
 | Lager 2 | Ethternet |
 | Lager 1 |  |
 
+Minnesregel: Please Do Not Throw Sausage Pizza Away
+
 #### App. prot.: Lager 5,6,7
 
 Tusentals stycken, några vanliga är:
@@ -42,7 +105,7 @@ Tusentals stycken, några vanliga är:
 + **IMAP** - 143 - Internet Message Access Protocol - samma funktion som POP3. Kraftfullare än POP.
 + **SIP (+RTP)** - Session Initiation Protocol + Real-Time Transport - IP-telefoni.
 + **SNMP** - 161 - Simple Network Management Protocol - Övervakning av nätverkshårdvara.
-+ '*NTP** - UDP-123  - Network Time Protocol - Synkronisering av tid.
++ **NTP** - UDP-123  - Network Time Protocol - Synkronisering av tid.
 
 **ARP** - Lager 3 - Adress Translation Protocol - översätter IP till MAC.  
 **DHCP** - Dynamic Host Configuration Protocol - automatisk utdelning av IP-inställningar. BootP är föregångaren till DHCP.  
@@ -221,4 +284,51 @@ Om vi har ett LAN som är kopplad till en router så har alla i LANet samma DGW.
   Internet Service Provider  
   Det bolag som ger en anslutning till internet.  
   Om man är ett företag kan man avtala med ännu större ISPs.  
+## Några viktiga begrepp
+
+### MAC
++ 48 bits (6 bytes)
++ Skrivs vanligtvis i HEX.
++ AB:CD:EF:00:11:22
++ Varje sektion motsvarar en byte.
++ Varje HEX-tal är 4 bits och paren blir en byte.
++ Tre första byten är tillverkarspecifika, och tre sista är en unik del.
++ 2^48 adresser.
++ Används endast på det lokala nätverket, alltså passerar det aldrig en router.
++ ”Bränns” in i kortet vid tillverkning.
++ MAC-spoofing – att ändra MAC i ont syfte.
+
+### IPv4-adresser
++ 32-bits, 4 bytes
++ Något sådant här: 194.45.31.112
++ Varje sektion motsvarar en byte och är decimaltal mellan 0-255
++ Man delar upp adressen i NetID och HostID, gränsen mellan dessa är flytande och bestäms av en subnätmask eller med hjälp av CIDR-notation (ex /24 blir SNM 255.255.255.0)
++ **CIDR**  - Classless Inter-Domain Routing
++ Med CIDR kan gränsen mellan nätID och nodID gå mitt i ett decimalt tal.
++ Därför är det lättare att omvandla adressen till binärt när man jobbar med det.
++ Formel för antal värdar i ett nätverk: 2^(32-CIDR)-2
+
+### Reserved Address Blocks
+Många används för privata nätverk mha NAT.
+PAT – Port Address Translation - varje dator har en egen port.
+
++ 127.0.0.0 Loopback
++ 169.254.0.0, Link-Local, slumpad IP när ingen DHCP-server kan nås.
++ 224.0.0.0/4 IP-multicast, servern behöver endast skicka ett paket till närmaste routern, vilket sedan distribueras vidare.
+
+**Unicast** – alla till alla
+**Broadcast** – en till alla
+
+Oftast får man inte välja IP, enda gången detta är möjligt är när man sätter upp ett privat nätverk.
+Gråa nät (för privat bruk):
+
++ 10.0.0.0/8
++ 172.16.0.0/12?
++ 192.168.0.0/16
+
+### Värd
++ Ändpunkt i en kommunikation, med en NIC.
++ Lager 3- och smart-switchar är värdar.
++ Allt som har en IP är en värd. 
+
 
