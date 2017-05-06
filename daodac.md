@@ -17,7 +17,8 @@ Trådlös motsvarighet av LAN. Använder andra protokoll som är kompatibla med 
 Virtuell uppdelning av fysiska lokala nätverk. Kan även ske över nätet i VPN.
 
 ### OSI-modellen
-
+| Lager | Protokoll |
+|:------|-----------|
 | Lager 7 | Applikationsprotokoll |
 | Lager 6 |  |
 | Lager 5 |  |
