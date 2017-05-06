@@ -5,7 +5,7 @@
 ### Lite historia
 
 Först användes modem (vilket står för modulering & demodulering) över telenätet för att koppla upp sig till internet.
-Eftersom telenätet är analogt förekom mycket felkorrigering då paket förlorades på vägen. Man använde pariet och checksummor för att åtgärda anslutningarna. Detta gav mycket dåliga hastigheter. Modemet var då kretskopplat med modempoolen, alltså fanns det direkt elektrisk kontakt mellan dessa och de bildade en krets. Modempooler är datorer/servar med massor av serieportar som ansluts till var sitt modem, dessa ingick i något kallat PTSN, Public Switched telehone network.
+Eftersom telenätet är analogt förekom mycket felkorrigering då paket förlorades på vägen. Man använde pariet och checksummor för att åtgärda anslutningarna. Detta gav mycket dåliga hastigheter. Modemet var då kretskopplat med modempoolen, alltså fanns det direkt elektrisk kontakt mellan dessa och de bildade en krets. Modempooler är datorer/servar med massor av serieportar som ansluts till var sitt modem, dessa ingick i något kallat PSTN, Public Switched telehone network.
 
 För att kunna ansluta till internet användes också ADSL-splitters (vilka fortfarande används), dessa möjliggör digital förbindelse över analog förbindelse på frekvenser som är ohörbara för människan. Splittern delar upp frekvenserna vid 64kHz, allt under skickas vidare till telefon och allt över används av ADSL.
 
@@ -86,7 +86,7 @@ Virtuell uppdelning av fysiska lokala nätverk. Kan även ske över nätet i VPN
 | Lager 5 |  |
 | Lager 4 | TCP/UDP |
 | Lager 3 | IP |
-| Lager 2 | Ethternet |
+| Lager 2 | Ethernet |
 | Lager 1 |  |
 
 Minnesregel: Please Do Not Throw Sausage Pizza Away
@@ -326,7 +326,7 @@ Gråa nät (för privat bruk):
 + 172.16.0.0/12?
 + 192.168.0.0/16
 
-### Värd
+### Värd/Nod
 + Ändpunkt i en kommunikation, med en NIC.
 + Lager 3- och smart-switchar är värdar.
 + Allt som har en IP är en värd. 
