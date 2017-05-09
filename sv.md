@@ -16,27 +16,23 @@ De var lika men olika. Även om de var geografiskt nära skiljde deras livsstila
 
 ### Stödord till texten
 
-+ Urminnes rivaler  
-+ Stadsstater - kultur, krigskonst, allmän livsstil  
-+ Kulturell  
-+ Filosof från sparta?  
-+ Politiska system  
-
-
++ Urminnes rivaler
++ Stadsstater - kultur, krigskonst, allmän livsstil
++ Kulturell
++ Filosof från sparta?
++ Politiska system
+---
 + Nöjda, brydde sig inte  
 + Grekland expandera
 + Krig mellan kulturerna
-
-
+---
 + Kulturella tänkare
 + Gud mm
 + Livsstilerna
 + Spartanskt
 + Grekerna fullständig utbildning
-
-
+---
 + aten kvinnor
 + sparta kvinnor fler rättigheter
-
-
+---
 + Lika men olika.
