@@ -13,3 +13,26 @@ De var lika men olika. Även om de var geografiskt nära skiljde deras livsstila
 #### Källor
 [Athens and Sparta, hämtat 2017-05-09](http://www.socialstudiesforkids.com/articles/worldhistory/athenssparta.htm)  
 [Athens vs Sparta, hämtat 2017-05-08](http://www.diffen.com/difference/Athens_vs_Sparta)
+
+### Stödord till texten
+
++ Urminnes rivaler  
++ Stadsstater - kultur, krigskonst, allmän livsstil  
++ Kulturell  
++ Filosof från sparta?  
++ Politiska system  
+
++ Nöjda, brydde sig inte  
++ Grekland expandera
++ Krig mellan kulturerna
+
++ Kulturella tänkare
++ Gud mm
++ Livsstilerna
++ Spartanskt
++ Grekerna fullständig utbildning
+
++ aten kvinnor
++ sparta kvinnor fler rättigheter
+
++ Lika men olika.
