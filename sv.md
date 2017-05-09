@@ -22,9 +22,11 @@ De var lika men olika. Även om de var geografiskt nära skiljde deras livsstila
 + Filosof från sparta?  
 + Politiska system  
 
+
 + Nöjda, brydde sig inte  
 + Grekland expandera
 + Krig mellan kulturerna
+
 
 + Kulturella tänkare
 + Gud mm
@@ -32,7 +34,9 @@ De var lika men olika. Även om de var geografiskt nära skiljde deras livsstila
 + Spartanskt
 + Grekerna fullständig utbildning
 
+
 + aten kvinnor
 + sparta kvinnor fler rättigheter
+
 
 + Lika men olika.
