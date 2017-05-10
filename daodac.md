@@ -5,7 +5,7 @@
 ### Lite historia
 
 Först användes modem (vilket står för modulering & demodulering) över telenätet för att koppla upp sig till internet.
-Eftersom telenätet är analogt förekom mycket felkorrigering då paket förlorades på vägen. Man använde paritet och checksummor för att åtgärda anslutningarna. Detta gav mycket dåliga hastigheter. Modemet var då kretskopplat med modempoolen, alltså fanns det direkt elektrisk kontakt mellan dessa och de bildade en krets. Modempooler är datorer/servar med massor av serieportar som ansluts till var sitt modem, dessa ingick i något kallat PSTN, Public Switched telehone network.
+Eftersom telenätet är analogt förekom mycket felkorrigering då paket förlorades på vägen. Man använde paritet och checksummor för att åtgärda anslutningarna. Detta gav mycket dåliga hastigheter. Modemet var då kretskopplat med modempoolen, alltså fanns det direkt elektrisk kontakt mellan dessa och de bildade en krets. Modempooler är datorer/servar med massor av serieportar som ansluts till var sitt modem, dessa ingick i något kallat PSTN, Public Switched Telephone Network.
 
 För att kunna ansluta till internet användes också ADSL-splitters (vilka fortfarande används), dessa möjliggör digital förbindelse över analog förbindelse på frekvenser som är ohörbara för människan. Splittern delar upp frekvenserna vid 64kHz, allt under skickas vidare till telefon och allt över används av ADSL.
 
@@ -100,7 +100,7 @@ Tusentals stycken, några vanliga är:
 + **SSH** - 22 - Secure SHell. Säker textbaserad terminal. Fjärrstyrning
 + **RDP** - 3389 - Remote Desktop Protocol - Fjärrstyrning av Windows
 + **Telnet** - 23 - Fjärrstyrning, textläge, **helt okrypterat!!!** _Överförbar på en sytråd._
-+ **SMTP** - 587 - Simple Mail Transfer Protocol - Gammalt men fortfarande använt för mejl. 7-bit ASCII.
++ **SMTP** - 22/587 - Simple Mail Transfer Protocol - Gammalt men fortfarande använt för mejl. 7-bit ASCII.
 + **POP3** - 110 - Post Office Protocol - hämtar epost från servern.
 + **IMAP** - 143 - Internet Message Access Protocol - samma funktion som POP3. Kraftfullare än POP.
 + **SIP (+RTP)** - Session Initiation Protocol + Real-Time Transport - IP-telefoni.
@@ -121,7 +121,7 @@ Tusentals stycken, några vanliga är:
 + MAC-Dst: Mottagarens MAC, skickas innan Src för att effektivisera hanteringen av paketet
 + MAC-Src: Sändarens MAC
 + 802.1Q tag: VLAN-taggning -- ?
-+ Ethertype: Längden på paketet
++ Ethertype: Indikerar vad som finns i payloaden, tex har IPv4 0800(HEX).
 + Payload: Själva datan i paketet, 42-1500 oktetter
 + Frame Check Sequence (32-bit CRC): En slags checksumma som är baserad på resten av paketet, för att kontrollera att hela paketet är korrekt skickat. Om det inte stämmer överens, slängs paketet.
 + Interframe gap: Tystnad för att skapa mellanrum mellan paketen, finns inte i WLAN.
@@ -137,7 +137,7 @@ I payloaden finns ett till huvud, IP-huvudet:
 + IP-flags: Olika information, tex fragmentation eller om det kommer mer bitar.
 + Fragment Offset: beskriver vart i meddelandet vi är.
 + Time To Live: En siffra som beskriver hur många routers paketet får passera.
-+ Protocol: Beskriver vilket protkoll som används, ex TCP, UDP, ICMP, IGRP.
++ Protocol: Beskriver vilket protokoll som används, ex TCP, UDP, ICMP, IGRP.
 + Header Checksum: vanlig checksumma
 + Src: Källaddress
 + Dst: Destination
@@ -327,7 +327,7 @@ Oftast får man inte välja IP, enda gången detta är möjligt är när man sä
 Gråa nät (för privat bruk):
 
 + 10.0.0.0/8
-+ 172.16.0.0/12?
++ 172.16.0.0/12
 + 192.168.0.0/16
 
 ### Värd/Nod
