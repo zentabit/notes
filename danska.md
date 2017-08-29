@@ -6,3 +6,5 @@
 + krone
 + cykelstativ
 + Copenhaugeun
+
+Av: Eric, Johannes, Emanuel och Emil
