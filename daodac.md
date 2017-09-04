@@ -334,5 +334,13 @@ Gråa nät (för privat bruk):
 + Ändpunkt i en kommunikation, med en NIC.
 + Lager 3- och smart-switchar är värdar.
 + Allt som har en IP är en värd. 
+## 19/05-17
+### Datasäkerhet och annat gött.
+#### Autentisering
++ Någonting du 'är', ex epost (känt)
++ Någonting man har/kan (hemligt/svårkopierat) och det skall ta tillräckligt lång tid att knäcka.
+
+Med hjälp av dessa kan datorn avgöra att just du är du och du får tillgång till ditt material.  
+Vanligaste scenariot, en email-adress + ett lösenord.
 
 
