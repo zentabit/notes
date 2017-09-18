@@ -132,6 +132,7 @@ Danska, norska och svenska är grannspråk. Inbördes förståeliga utan föreg�
 + Rom betyder man eller människa
 
 #### Jiddisch
+
 + ca 4 000 svenskar som talar idag
 + Familjeliv och kultur
 + Har talats i Sverige sedan 1700-talet
