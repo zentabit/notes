@@ -64,15 +64,15 @@
 4. Sträck på benen och håll ryggen rak.
 
 ### Ergonomi vid datorarbete
-+ Variera din arbetsställning
++ Variera din arbetsställning  
 PÅ stolen:
 + Fötter ner till marken
 + Ordentligt ned på sitsen
 + Ryggstöd stöd åt svanken
-+ Armstöd i höjd med armbåge i avslappnat läge.
++ Armstöd i höjd med armbåge i avslappnat läge.  
 Bordet:
 + I höjd så att axlar skuldror kan jobba i avslappnat läge
-+ Variera arbetsställning om bordet är höj- och sänkbart
++ Variera arbetsställning om bordet är höj- och sänkbart  
 Bildskärmen:
 + En armlängds avstånd, övre kanten i höjd med ögonen
 + Inte störas av ljus från fönster
